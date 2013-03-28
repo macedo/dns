@@ -24,17 +24,10 @@
     <%= f.text_field :dns2 %>
   </div>
 
-  <%= f.fields_for :records do |record| %>
-    <div class="field">
-      <%= record.label :name %><br />
-      <%= record.select :name, Record::NAMES.map { |value| [ value, value ] }, { include_blank: true } %>
-    </div>
-    <div>
-      <%= record.label :value %><br />
-      <%= record.text_field :value %>
-    </div>
-    <% end %>
-  </div>
+  <%= f.fields_for :records do |record_form| %>
+    <%= render 'records_fields', :f => record_form %>
+  <% end %>
+  <p><%= link_to_add_fields "Add Records", f, :records %></p>
   <div class="actions">
     <%= f.submit %>
   </div>
