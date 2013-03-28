@@ -11,12 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130328005604) do
+ActiveRecord::Schema.define(:version => 20130328010043) do
 
   create_table "domains", :force => true do |t|
     t.string   "name"
     t.string   "dns1"
     t.string   "dns2"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "records", :force => true do |t|
+    t.string   "name"
+    t.string   "value"
+    t.integer  "domain_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

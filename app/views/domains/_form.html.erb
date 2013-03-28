@@ -23,6 +23,18 @@
     <%= f.label :dns2 %><br />
     <%= f.text_field :dns2 %>
   </div>
+
+  <%= f.fields_for :records do |record| %>
+    <div class="field">
+      <%= record.label :name %><br />
+      <%= record.text_field :name %>
+    </div>
+    <div>
+      <%= record.label :value %><br />
+      <%= record.text_field :value %>
+    </div>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

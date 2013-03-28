@@ -25,6 +25,7 @@ class DomainsController < ApplicationController
   # GET /domains/new.json
   def new
     @domain = Domain.new
+    2.times { @domain.records.build }
 
     respond_to do |format|
       format.html # new.html.erb
