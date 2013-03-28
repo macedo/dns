@@ -20,3 +20,9 @@ function add_fields(link, association, content) {
   var regexp = new RegExp("new_" + association, "g")
   $(link).parent().before(content.replace(regexp, new_id));
 }
+
+function remove_fields(link) {
+  console.log(link);
+  $(link).prev("input[type=hidden]").val("1");
+  $(link).parent().hide();
+}

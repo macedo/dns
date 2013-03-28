@@ -1,9 +1,10 @@
 <div class="field">
-  <%= f.label :name %><br />
-  <%= f.select :name, Record::NAMES.map { |value| [ value, value ] }, { include_blank: true } %>
-</div>
-<div>
-  <%= f.label :value %><br />
-  <%= f.text_field :value %>
+  <%= f.label :name %>
+  <%= f.select :name, Record::NAMES.map { |value| [ value, value ] }, { include_blank: true } %><br/>
+
+  <%= f.label :value %>
+  <%= f.text_field :value %><br/>
+
+  <%= link_to_remove_fields "remove", f %>
 </div>
 
