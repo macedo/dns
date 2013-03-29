@@ -6,17 +6,10 @@ class DomainsController < ApplicationController
     respond_with(@domains)
   end
 
-  def show
-    respond_with(@domain)
-  end
-
   def new
     @domain = Domain.new do |domain|
       domain.records.build
     end
-  end
-
-  def edit
   end
 
   def create
@@ -25,9 +18,16 @@ class DomainsController < ApplicationController
     respond_with(@domain)
   end
 
+  def edit
+  end
+
   def update
     @domain.update_attributes(params[:domain])
     flash[:notice] = 'Domain was successfully updated.' if @domain.update_attributes(params[:domain])
+    respond_with(@domain)
+  end
+
+  def show
     respond_with(@domain)
   end
 
