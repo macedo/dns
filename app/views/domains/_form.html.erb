@@ -1,34 +1,14 @@
-<%= form_for(@domain) do |f| %>
-  <% if @domain.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@domain.errors.count, "error") %> prohibited this domain from being saved:</h2>
+<%= simple_form_for(@domain) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :dns1 %>
+  <%= f.input :dns2 %>
 
-      <ul>
-      <% @domain.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+  <%= f.simple_fields_for :records do |record_form| %>
+    <%= render 'records_fields', f: record_form %>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :dns1 %><br />
-    <%= f.text_field :dns1 %>
-  </div>
-  <div class="field">
-    <%= f.label :dns2 %><br />
-    <%= f.text_field :dns2 %>
-  </div>
-
-  <%= f.fields_for :records do |record_form| %>
-    <%= render 'records_fields', :f => record_form %>
-  <% end %>
   <p><%= link_to_add_fields "Add Records", f, :records %></p>
-  <div class="actions">
+  <div class="form-actions">
     <%= f.submit %>
   </div>
 <% end %>

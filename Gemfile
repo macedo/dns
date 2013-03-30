@@ -6,6 +6,8 @@ gem 'pg'
 
 gem 'therubyracer'
 
+gem 'simple_form'
+
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'less-rails'
