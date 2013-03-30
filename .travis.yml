@@ -12,4 +12,4 @@ script:
 before_script:
   - cp config/database.travis.yml config/database.yml
   - rm .rspec
-  - psql -c 'create database nutri_test' -U postgres
+  - psql -c 'create database dns_test' -U postgres
