@@ -20,12 +20,6 @@ describe DomainsController do
       assigns(:domain).should be_instance_of Domain
     end
 
-    it 'assign 1 new record to the new domain' do
-      get :new
-      assigns(:domain).records.size.should equal 1
-      assigns(:domain).records[0].should be_instance_of Record
-    end
-
     it 'renders new view' do
       get :new
       response.should render_template(:new)

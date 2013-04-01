@@ -7,9 +7,7 @@ class DomainsController < ApplicationController
   end
 
   def new
-    @domain = Domain.new do |domain|
-      domain.records.build
-    end
+    @domain = Domain.new
   end
 
   def create

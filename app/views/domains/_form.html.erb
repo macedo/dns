@@ -1,13 +1,5 @@
 <%= simple_form_for(@domain) do |f| %>
   <%= f.input :name %>
-  <%= f.input :dns1 %>
-  <%= f.input :dns2 %>
-
-  <%= f.simple_fields_for :records do |record_form| %>
-    <%= render 'records_fields', f: record_form %>
-  <% end %>
-
-  <p><%= link_to_add_fields "Add Records", f, :records %></p>
   <div class="form-actions">
     <%= f.submit %>
   </div>

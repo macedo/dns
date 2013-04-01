@@ -4,7 +4,7 @@ describe Record do
 
   describe 'accessible attributes' do
     it { should allow_mass_assignment_of :name }
-    it { should allow_mass_assignment_of :value }
+    it { should allow_mass_assignment_of :values }
   end
 
   describe 'associations' do
