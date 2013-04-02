@@ -8,7 +8,11 @@ class Record < ActiveRecord::Base
       klass_name = klass.name.split("::").last
       klass.instance_eval <<-RUBY, __FILE__, __LINE__
         after_initialize do
-          self.name = "#{klass_name}"
+          self.name = "#{klass_name}" unless self.name
+        end
+
+        def self.all
+          where(name: "#{klass_name}")
         end
       RUBY
     end
