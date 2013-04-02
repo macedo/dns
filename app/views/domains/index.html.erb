@@ -10,9 +10,9 @@
   <tr>
     <td><%= domain.name %></td>
     <td>
-      <%= link_to 'Show', domain %>
-      <%= link_to 'Edit', edit_domain_path(domain) %>
-      <%= link_to 'Destroy', domain, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to 'Show', domain, class: 'btn btn-mini btn-info' %>
+      <%= link_to 'Edit', edit_domain_path(domain), class: 'btn btn-mini btn-warning' %>
+      <%= link_to 'Destroy', domain, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
     </td>
   </tr>
 <% end %>
@@ -20,4 +20,4 @@
 
 <br />
 
-<%= link_to 'New Domain', new_domain_path %>
+<%= link_to 'New Domain', new_domain_path, class: 'btn btn-success pull-right' %>

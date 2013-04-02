@@ -1,6 +1,6 @@
 <%= simple_form_for(@domain) do |f| %>
   <%= f.input :name %>
   <div class="form-actions">
-    <%= f.submit %>
+    <%= f.submit nil, class: 'btn btn-success pull-right' %>
   </div>
 <% end %>
