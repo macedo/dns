@@ -107,7 +107,7 @@
   <tbody>
     <% @domain.records.select { |r| r.name == 'TXT' }.each do |record| %>
       <tr>
-        <td><%= record.name %></td>
+        <td><%= record.txt_name %></td>
         <td><%= record.text %></td>
         <td>
           <%= link_to 'Edit', edit_domain_record_path(@domain, record), class: 'btn btn-mini btn-warning' %>

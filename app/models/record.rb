@@ -6,7 +6,8 @@ class Record < ActiveRecord::Base
   class << self
     def inherited(klass)
       klass_name = klass.name.split("::").last
-      klass.instance_eval <<-RUBY, __FILE__, __LINE__
+
+      klass.class_eval <<-RUBY, __FILE__, __LINE__
         after_initialize do
           self.name = "#{klass_name}" unless self.name
         end

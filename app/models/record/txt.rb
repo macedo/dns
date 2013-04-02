@@ -1,3 +1,3 @@
 class Record::TXT < Record
-  attrs :name, :text
+  attrs :txt_name, :text
 end
