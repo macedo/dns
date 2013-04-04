@@ -148,3 +148,4 @@
   </tbody>
 </table>
 <%= link_to 'Add a new SRV Record', new_domain_record_path(@domain, record_name: "SRV"), class: 'btn btn-success' %>
+<pre id="preview"><%= @domain.to_text %></pre>
