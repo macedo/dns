@@ -14,8 +14,6 @@
       <tr>
         <td><%= record.hostname %></td>
         <td>
-          <%= link_to 'Edit', edit_domain_record_path(@domain, record), class: 'btn btn-mini btn-warning' %>
-          <%= link_to 'Destroy', [@domain, record], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>
@@ -38,8 +36,6 @@
         <td><%= record.hostname %></td>
         <td><%= record.ip_address %></td>
         <td>
-          <%= link_to 'Edit', edit_domain_record_path(@domain, record), class: 'btn btn-mini btn-warning' %>
-          <%= link_to 'Destroy', [@domain, record], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>
@@ -62,8 +58,6 @@
         <td><%= record.subdomain %></td>
         <td><%= record.hostname %></td>
         <td>
-          <%= link_to 'Edit', edit_domain_record_path(@domain, record), class: 'btn btn-mini btn-warning' %>
-          <%= link_to 'Destroy', [@domain, record], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>
@@ -86,8 +80,6 @@
         <td><%= record.priority %></td>
         <td><%= record.hostname %></td>
         <td>
-          <%= link_to 'Edit', edit_domain_record_path(@domain, record), class: 'btn btn-mini btn-warning' %>
-          <%= link_to 'Destroy', [@domain, record], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>
@@ -110,8 +102,6 @@
         <td><%= record.txt_name %></td>
         <td><%= record.text %></td>
         <td>
-          <%= link_to 'Edit', edit_domain_record_path(@domain, record), class: 'btn btn-mini btn-warning' %>
-          <%= link_to 'Destroy', [@domain, record], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>
@@ -140,8 +130,6 @@
         <td><%= record.port %></td>
         <td><%= record.target %></td>
         <td>
-          <%= link_to 'Edit', edit_domain_record_path(@domain, record), class: 'btn btn-mini btn-warning' %>
-          <%= link_to 'Destroy', [@domain, record], method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-mini btn-danger' %>
         </td>
       </tr>
     <% end %>
