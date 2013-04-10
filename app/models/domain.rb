@@ -14,9 +14,12 @@ class Domain < ActiveRecord::Base
       text << "\n\t604800\t; Expire"
       text << "\n\t86400)\t; Minimum"
       text << "\n\n\n"
-      self.records.each do |record|
-        text << record.to_text
-      end
+      self.records.select { |record| record.type == "Record::NS" }.each { |record| text << record.to_text }
+      self.records.select { |record| record.type == "Record::MX" }.each { |record| text << record.to_text }
+      self.records.select { |record| record.type == "Record::TXT" }.each { |record| text << record.to_text }
+      self.records.select { |record| record.type == "Record::SRV" }.each { |record| text << record.to_text }
+      self.records.select { |record| record.type == "Record::A" }.each { |record| text << record.to_text }
+      self.records.select { |record| record.type == "Record::CNAME" }.each { |record| text << record.to_text }
     end
   end
 end
