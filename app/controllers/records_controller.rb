@@ -14,7 +14,7 @@ class RecordsController < ApplicationController
 
   def destroy
     @record.destroy
-    respond_with(@record)
+    respond_with(@record, location: domain_path(@domain))
   end
 
   private
