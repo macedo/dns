@@ -1,7 +1,7 @@
 class Record::TXT < Record
   class << self
     def model_name
-      "Record"
+      Record.model_name
     end
   end
 
