@@ -12,8 +12,8 @@ class Domain < ActiveRecord::Base
       text << "\n\t10800\t; Refresh"
       text << "\n\t3600\t; Retry"
       text << "\n\t604800\t; Expire"
-      text << "\n\t86400)\t; Minimum"
-      text << "\n\n\n"
+      text << "\n\t86400\t; Minimum"
+      text << "\n);\n\n\n"
       self.records.select { |record| record.type == "Record::NS" }.each { |record| text << record.to_text }
       self.records.select { |record| record.type == "Record::MX" }.each { |record| text << record.to_text }
       self.records.select { |record| record.type == "Record::TXT" }.each { |record| text << record.to_text }
