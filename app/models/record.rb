@@ -3,19 +3,10 @@ class Record < ActiveRecord::Base
   attr_accessible :values, :domain
   belongs_to :domain
 
+  after_save    -> { self.domain.increment!(:serial) }
+  after_destroy -> { self.domain.increment!(:serial) }
+
   class << self
-    def inherited(klass)
-      klass.class_eval do
-        define_singleton_method :model_name do
-          Record.model_name
-        end
-
-        define_method :name do
-          klass.name.split("::").last
-        end
-      end
-    end
-
     def attrs(*args)
       args.each do |key|
         instance_eval do

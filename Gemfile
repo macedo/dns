@@ -19,6 +19,7 @@ gem 'jquery-rails'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
+  gem 'rails-erd'
 end
 
 group :test do
@@ -26,6 +27,7 @@ group :test do
   gem 'capybara'
   gem 'rspec-nc'
   gem 'nyan-cat-formatter'
+  gem 'timecop'
 end
 
 group :development, :test do
@@ -33,4 +35,5 @@ group :development, :test do
   gem 'pry'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'rails_best_practices'
 end

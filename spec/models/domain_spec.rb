@@ -6,6 +6,17 @@ describe Domain do
   end
 
   describe 'associations' do
-    it { should have_many :records }
+    it { should have_many(:records).dependent(:destroy) }
+  end
+
+  describe 'before_create' do
+    before do
+      Timecop.freeze
+      @domain = FactoryGirl.create(:domain)
+    end
+
+    after { Timecop.return }
+
+    it { @domain.serial.should == Time.now.to_i }
   end
 end

@@ -5,7 +5,6 @@ class Domain < ActiveRecord::Base
   before_create -> { self.serial = Time.now.to_i }
 
   def to_text
-    update_serial
     "".tap do |text|
       text << "$TTL\t86400"
       text << "\n\n#{self.name}.\tIN\tSOA\tns1.#{self.name}. root.#{self.name}. ("
@@ -19,10 +18,5 @@ class Domain < ActiveRecord::Base
         text << record.to_text
       end
     end
-  end
-
-  private
-  def update_serial
-    increment! :serial
   end
 end

@@ -11,8 +11,7 @@ class DomainsController < ApplicationController
   end
 
   def create
-    @domain = Domain.new(params[:domain])
-    flash[:notice] = 'Domain was successfully created.' if @domain.save
+    @domain = Domain.create!(params[:domain])
     respond_with(@domain)
   end
 
@@ -20,8 +19,7 @@ class DomainsController < ApplicationController
   end
 
   def update
-    @domain.update_attributes(params[:domain])
-    flash[:notice] = 'Domain was successfully updated.' if @domain.update_attributes(params[:domain])
+    @domain.update_attributes!(params[:domain])
     respond_with(@domain)
   end
 

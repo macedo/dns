@@ -147,6 +147,13 @@ ALTER TABLE ONLY records
 
 
 --
+-- Name: index_records_on_domain_id; Type: INDEX; Schema: public; Owner: -; Tablespace: 
+--
+
+CREATE INDEX index_records_on_domain_id ON records USING btree (domain_id);
+
+
+--
 -- Name: records_gin_values; Type: INDEX; Schema: public; Owner: -; Tablespace: 
 --
 
@@ -179,3 +186,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130330212707');
 INSERT INTO schema_migrations (version) VALUES ('20130403234315');
 
 INSERT INTO schema_migrations (version) VALUES ('20130404002648');
+
+INSERT INTO schema_migrations (version) VALUES ('20130410020514');
