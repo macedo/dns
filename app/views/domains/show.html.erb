@@ -1,8 +1,8 @@
-<h2><%= @domain.name %></h1>
+<h1><%= @domain.name %></h1>
 <br /><br />
 
 <h3>NS Records</h3>
-<table class="table table-striped table-bordered">
+<table id="ns_records" class="table table-striped table-bordered">
   <thead>
     <tr>
       <th>Hostname</th>
@@ -11,7 +11,7 @@
   </thead>
   <tbody>
     <% @domain.records.select { |r| r.name == 'NS' }.each do |record| %>
-      <tr>
+      <tr id="ns_record_<%= record.id %>">
         <td><%= record.hostname %></td>
         <td>
           <%= link_to 'Edit', edit_domain_record_path(@domain, record), class: 'btn btn-mini btn-warning' %>
@@ -24,7 +24,7 @@
 <%= link_to 'Add a new NS Record', new_domain_record_path(@domain, record_name: "NS"), class: 'btn btn-success' %>
 
 <h3>A Records</h3>
-<table class="table table-striped table-bordered">
+<table id="a_records" class="table table-striped table-bordered">
   <thead>
     <tr>
       <th>Hostname</th>
@@ -34,7 +34,7 @@
   </thead>
   <tbody>
     <% @domain.records.select { |r| r.name == 'A' }.each do |record| %>
-      <tr>
+      <tr id="a_record_<%= record.id %>">
         <td><%= record.hostname %></td>
         <td><%= record.ip_address %></td>
         <td>
@@ -48,7 +48,7 @@
 <%= link_to 'Add a new A Record', new_domain_record_path(@domain, record_name: "A"), class: 'btn btn-success' %>
 
 <h3>CNAME Records</h3>
-<table class="table table-striped table-bordered">
+<table id="cname_records" class="table table-striped table-bordered">
   <thead>
     <tr>
       <th>Hostname(<%= @domain.name %>)</th>
@@ -58,7 +58,7 @@
   </thead>
   <tbody>
     <% @domain.records.select { |r| r.name == 'CNAME' }.each do |record| %>
-      <tr>
+      <tr id="cname_record_<%= record.id %>">
         <td><%= record.subdomain %></td>
         <td><%= record.hostname %></td>
         <td>
@@ -72,7 +72,7 @@
 <%= link_to 'Add a new CNAME Record', new_domain_record_path(@domain, record_name: "CNAME"), class: 'btn btn-success' %>
 
 <h3>MX Records</h3>
-<table class="table table-striped table-bordered">
+<table id="mx_records" class="table table-striped table-bordered">
   <thead>
     <tr>
       <th>Priority</th>
@@ -82,7 +82,7 @@
   </thead>
   <tbody>
     <% @domain.records.select { |r| r.name == 'MX' }.each do |record| %>
-      <tr>
+      <tr id="mx_record_<%= record.id %>">
         <td><%= record.priority %></td>
         <td><%= record.hostname %></td>
         <td>
@@ -96,7 +96,7 @@
 <%= link_to 'Add a new MX Record', new_domain_record_path(@domain, record_name: "MX"), class: 'btn btn-success' %>
 
 <h3>TXT Records</h3>
-<table class="table table-striped table-bordered">
+<table id="txt_records" class="table table-striped table-bordered">
   <thead>
     <tr>
       <th>Name</th>
@@ -106,7 +106,7 @@
   </thead>
   <tbody>
     <% @domain.records.select { |r| r.name == 'TXT' }.each do |record| %>
-      <tr>
+      <tr id="txt_record_<%= record.id %>">
         <td><%= record.txt_name %></td>
         <td><%= record.text %></td>
         <td>
@@ -120,7 +120,7 @@
 <%= link_to 'Add a new TXT Record', new_domain_record_path(@domain, record_name: "TXT"), class: 'btn btn-success' %>
 
 <h3>SRV Records</h3>
-<table class="table table-striped table-bordered">
+<table id="srv_records" class="table table-striped table-bordered">
   <thead>
     <tr>
       <th>Hostname(<%= @domain.name %>)</th>
@@ -133,7 +133,7 @@
   </thead>
   <tbody>
     <% @domain.records.select { |r| r.name == 'SRV' }.each do |record| %>
-      <tr>
+      <tr id="srv_record_<%= record.id %>">
         <td><%= record.hostname %></td>
         <td><%= record.priority %></td>
         <td><%= record.weight %></td>

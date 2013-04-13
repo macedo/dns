@@ -17,6 +17,12 @@
       </div>
     </div>
     <div class="container">
+      <% flash.each do |level, message| %>
+        <div class="alert alert-<%= level == :notice ? 'success' : 'error' %>">
+          <button class="close" data-dismiss="alert" >x</button>
+          <%= message %>
+        </div>
+      <% end %>
       <div class="row">
         <div class="span8">
           <%= yield %>

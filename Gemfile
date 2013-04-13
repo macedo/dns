@@ -7,6 +7,7 @@ gem 'pg'
 gem 'activerecord-postgres-hstore'
 
 gem 'simple_form'
+gem 'responders'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -25,9 +26,12 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
+  gem 'launchy'
   gem 'rspec-nc'
   gem 'nyan-cat-formatter'
   gem 'timecop'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 group :development, :test do

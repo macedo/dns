@@ -1,14 +1,21 @@
 class RecordsController < ApplicationController
   before_filter :find_domain
-  before_filter :find_record, only: [ :destroy ]
+  before_filter :find_record, only: [ :edit, :update, :destroy ]
 
   def new
     @record = record.new(domain: @domain)
-    respond_with(@record)
   end
 
   def create
     @record = record.create(params[:record].merge(domain: @domain))
+    respond_with(@record, location: domain_path(@domain))
+  end
+
+  def edit
+  end
+
+  def update
+    @record.update_attributes!(params[:record])
     respond_with(@record, location: domain_path(@domain))
   end
 

@@ -1,7 +1,7 @@
-<%= simple_form_for [domain, record], as: :record, url: { controller: 'records', action: 'create' } do |f| %>
+<%= simple_form_for [domain, record], as: :record do |f| %>
   <%= hidden_field_tag :record_name, params[:record_name] %>
   <%= render "records/#{record.name.downcase}_fields", f: f %>
   <div class='form-actions'>
-    <%= f.submit %>
+    <%= f.submit nil, class: 'btn btn-success pull-right' %>
   </div>
 <% end %>
