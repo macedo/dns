@@ -11,15 +11,21 @@ class Record < ActiveRecord::Base
       args.each do |key|
         instance_eval do
           attr_accessible key
-
-          define_method(key) do
-            values && values[key.to_s]
-          end
-
-          define_method("#{key}=") do |value|
-            self.values = (values || {}).merge(key.to_s => value)
-          end
+          define_reader key
+          define_writer key
         end
+      end
+    end
+
+    def define_reader(attr)
+      define_method(attr) do
+        values && values[attr.to_s]
+      end
+    end
+
+    def define_writer(attr)
+      define_method("#{attr}=") do |value|
+        self.values = (values || {}).merge(attr.to_s => value)
       end
     end
   end
