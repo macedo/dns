@@ -3,8 +3,10 @@ class Record < ActiveRecord::Base
   attr_accessible :values, :domain
   belongs_to :domain
 
-  after_save    -> { self.domain.increment!(:serial) }
-  after_destroy -> { self.domain.increment!(:serial) }
+  increment_serial = lambda { self.domain.increment!(:serial) }
+
+  after_save    increment_serial
+  after_destroy increment_serial
 
   class << self
     def attrs(*args)
@@ -17,6 +19,7 @@ class Record < ActiveRecord::Base
       end
     end
 
+    private
     def define_reader(attr)
       define_method(attr) do
         values && values[attr.to_s]
