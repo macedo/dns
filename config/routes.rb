@@ -1,5 +1,5 @@
 Dns::Application.routes.draw do
-  resources :domains, execept: [ :edit, :update ] do
+  resources :domains, except: [ :edit, :update ] do
     resources :records, only: [ :new, :create, :destroy, :edit, :update ]
   end
 
