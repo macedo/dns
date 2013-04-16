@@ -1,5 +1,5 @@
 class DomainsController < ApplicationController
-  before_filter :find_domain, only: [ :show, :edit, :update, :destroy ]
+  before_filter :find_domain, only: [ :show, :destroy ]
 
   def index
     @domains = Domain.all
@@ -12,14 +12,6 @@ class DomainsController < ApplicationController
 
   def create
     @domain = Domain.create!(params[:domain])
-    respond_with(@domain)
-  end
-
-  def edit
-  end
-
-  def update
-    @domain.update_attributes!(params[:domain])
     respond_with(@domain)
   end
 
