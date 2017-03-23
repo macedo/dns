@@ -27,8 +27,6 @@ group :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'launchy'
-  gem 'rspec-nc'
-  gem 'nyan-cat-formatter'
   gem 'timecop'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
